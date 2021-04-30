@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.title-h1 {
+  font-weight: normal;
+  margin: 0 0 15px;
+}
+
+.input-field {
+  padding: 10px;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  outline: none;
+
+  &:focus {
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.todo-form {
+  margin: auto;
+  max-width: 500px;
+  margin: 0 0 20px;
+}
+
+.button {
+  padding: 6px 15px;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.todo-input {
+  display: flex;
+
+  .input-field {
+    flex: 1;
+  }
+}
+
+.todo {
+  display: flex;
+  justify-content: center;
+
+  &-list {
+    counter-reset: my-counter;
+
+    li {
+      display: flex;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      margin: 0 0 10px;
+
+      &::before {
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        border-radius: 3px;
+        padding: 1px 4px;
+        background: black;
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        counter-increment: my-counter;
+        content: counter(my-counter);
+      }
+
+      &.completed {
+        label {
+          background: #c4eaf2;
+        }
+      }
+
+      label {
+        flex: 1;
+        cursor: pointer;
+        padding: 10px 15px 10px 20px;
+        border-radius: 3px 0 0 3px;
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+    }
+  }
+}
+
+.button {
+  padding: 5px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  span {
+    transform: rotate(45deg);
+    display: inline-block;
+  }
+
+  &-delete {
+    font-size: 24px;
+    background: rgba(red, 0.7);
+
+    &:hover {
+      background: rgba(red, 1);
+    }
+
+    &[disabled] {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  svg {
+    width: 12px;
+  }
+}
+
