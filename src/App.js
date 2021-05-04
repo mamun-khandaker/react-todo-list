@@ -40,11 +40,22 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
+  // const editTodo = edit => {
+  //   setTodos([...todos, edit]);
+  // }
+
   return (
     <div className="container">
       <h1 className="title-h1">Todo list</h1>
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} toggleComplete={toggleComplete} removeTodo={removeTodo} />
+      {/* <Route path="/" exact>
+        <TodoForm addTodo={addTodo} />
+        <TodoList todos={todos} toggleComplete={toggleComplete} removeTodo={removeTodo} />
+      </Route>
+      <Route path="/edit-todo">
+        <EditTodo editTodo={editTodo} />
+      </Route> */}
     </div>
   );
 }

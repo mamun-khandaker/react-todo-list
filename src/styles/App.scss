@@ -125,6 +125,10 @@ body {
     background: rgba(0, 0, 0, 0.15);
   }
 
+  &[disabled] {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
   span {
     transform: rotate(45deg);
     display: inline-block;
@@ -145,6 +149,12 @@ body {
 
   svg {
     width: 12px;
+  }
+
+  &[disabled] {
+    svg {
+      fill: rgba(0, 0, 0, 0.3);
+    }
   }
 }
 

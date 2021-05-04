@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import uuid from 'uuid';
 
 const TodoForm = ({ addTodo }) => {
   const [todo, setTodo] = useState({
