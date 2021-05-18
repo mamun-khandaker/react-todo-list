@@ -1,5 +1,3 @@
-import React from 'react';
-
 const IconDelete = () => {
   return (
     <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 488.936 488.936">
