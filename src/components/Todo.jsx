@@ -23,13 +23,10 @@ const Todo = ({ todo, toggleComplete, removeTodo }) => {
     setNewTodo({
       ...newTodo, task: e.target.value
     })
-    // alert(newTodo)
   }
 
   const editText = () => {
-    setToggle(
-      !toggle
-    )
+    setToggle(true)
   }
 
   const updateText = e => {
@@ -38,46 +35,49 @@ const Todo = ({ todo, toggleComplete, removeTodo }) => {
       ...newTodo,
       task: newTodo.task,
     });
-    editText()
+    setToggle(false)
   }
 
   return (
-    <>
-      <li className={todo.completed ? "completed" : ""}>
+    <li className={todo.completed ? "completed" : ""}>
+      <label>
+        <input type="checkbox" onClick={handleCheckboxClick} />
         {toggle &&
           <form className="update-form" onSubmit={updateText}>
-            <input type="text" className="input-field" onChange={handleChange} name="task" value={newTodo.task} />
+            <input type="text" autoFocus className="input-field" onChange={handleChange} name="task" value={newTodo.task} />
             <button className="button button-edit">
               <IconUpdate />
             </button>
           </form>
         }
-
-        <label>
-          <input type="checkbox" onClick={handleCheckboxClick} />
+        
+        {!toggle &&
           <span>
             {!newTodo.task && todo.task}
 
             {newTodo.task && newTodo.task}
           </span>
-        </label>
+        }
+      </label>
+
+      {!todo.completed && !toggle &&
         <button className="button button-edit" onClick={editText}>
           <IconEdit />
         </button>
-        {
-          todo.completed ?
-            <button className="button button-delete" onClick={handleRemove}>
-              <IconDelete />
-            </button>
-            :
-            <button className="button button-delete" disabled>
-              <IconDelete />
-            </button>
-        }
-      </li>
-    </>
+      }
+
+      {
+        todo.completed ?
+          <button className="button button-delete" onClick={handleRemove}>
+            <IconDelete />
+          </button>
+          :
+          <button className="button button-delete" disabled>
+            <IconDelete />
+          </button>
+      }
+    </li>
   )
 }
 
 export default Todo;
-
